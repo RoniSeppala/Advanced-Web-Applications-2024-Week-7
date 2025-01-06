@@ -171,7 +171,7 @@ router.post("/api/user/login",
 })
 
 router.get("/api/private", validateToken, (req:Request,res:Response)=>{
-    res.status(200).json({msg:"This is a private route"})
+    res.status(200).json({message:"This is a private route"})
 })
 
 export default router;

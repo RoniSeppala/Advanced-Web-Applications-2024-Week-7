@@ -10,3 +10,8 @@ fetch('http://localhost:3000/api/private', {
 .then(response => response.json())
 .then(data => console.log(data))
 .catch(error => console.error('Error:', error));
+
+document.getElementById('logout').addEventListener('click', () => {
+    localStorage.removeItem('token');
+    window.location.href = '/login.html';
+});

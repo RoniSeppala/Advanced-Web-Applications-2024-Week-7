@@ -27,7 +27,7 @@ router.get('/hello', (req: Request, res: Response) => {
 })
 
 router.post("/api/user/register",
-    body("email").trim().isEmail().normalizeEmail().escape(),
+    body("email").trim().isEmail().escape(),
     body("password").isLength({min:2}).escape(),
     async (req:Request,res:Response) => {
         const errors:ValidationError[] = validationResult(req).array()

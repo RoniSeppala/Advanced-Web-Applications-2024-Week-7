@@ -26,6 +26,7 @@ document.getElementById("loginForm").addEventListener("submit", async (event) =>
             if(data.token){
                 localStorage.setItem("token", data.token);
             }
+            window.location.href = "/index.html";
         }
     } catch (error) {
         console.error("Error:", error);

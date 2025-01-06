@@ -61,6 +61,7 @@ router.post("/api/user/register",
         try {
             const user:TUser | undefined = userData.find((user:TUser)=>user.email === req.body.email)
             console.log(req.body.email)
+            console.log(user)
             if (user){
                 res.status(403).json({error:"user already exists"})
                 console.log("user already exists")

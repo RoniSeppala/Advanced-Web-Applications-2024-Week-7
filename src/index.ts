@@ -120,7 +120,7 @@ router.get("/api/user/list",(req:Request,res:Response)=>{
 })
 
 router.post("/api/user/login",
-    body("email").trim().isEmail().normalizeEmail().escape(),
+    body("email").trim().isEmail().escape(),
     body("password").isLength({min:2}).escape(),
     (req:Request,res:Response)=>{
         const errors:ValidationError[] = validationResult(req).array()

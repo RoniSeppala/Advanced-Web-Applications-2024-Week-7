@@ -20,6 +20,7 @@ export const validateToken = (req: CustomRequest, res: Response, next: NextFunct
         req.user = verified
         next()
     } catch (error) {
-        res.status(401).json({message: "This is protected secure route!"})
+        console.log("invalid token")
+        res.status(401).json({message: "This is protected secure route! no access here"})
     }
 }

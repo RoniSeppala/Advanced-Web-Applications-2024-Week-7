@@ -4,7 +4,7 @@ import jwt, { JwtPayload } from 'jsonwebtoken'
 import bcrypt from 'bcrypt'
 import fs from "fs"
 import path from "path"
-import dotenv from "dotenv"
+import { validateToken } from './middleware/validateToken'
 
 
 const router:Router = Router();
@@ -168,6 +168,10 @@ router.post("/api/user/login",
             }
             res.status(403).json({error:"password incorrect"})
         })
+})
+
+router.get("/api/private", validateToken, (req:Request,res:Response)=>{
+    res.status(200).json({msg:"This is a private route"})
 })
 
 export default router;
